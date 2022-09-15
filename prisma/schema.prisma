@@ -53,7 +53,7 @@ model teacherDisciplines {
 
 model tests {
   id                  Int                 @id @default(autoincrement())
-  name                String              @unique @db.VarChar(120)
+  name                String              @db.VarChar(120)
   pdfUrl              String
   categories          categories?         @relation(fields: [categoryId], references: [id])
   categoryId         Int?
