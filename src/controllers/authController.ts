@@ -10,7 +10,7 @@ export async function signup(request: Request, response: Response) {
   const success = await createUser(user);
 
   if (success === "success") {
-    return response.status(200).send("Usuário criado com sucesso");
+    return response.status(201).send("Usuário criado com sucesso");
   }
 
   response.status(500).send();
