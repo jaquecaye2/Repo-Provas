@@ -16,6 +16,46 @@ export async function findAllTeachers() {
   return result;
 }
 
+export async function findCategoryById(id: number) {
+  const result = await prisma.categories.findUnique({ where: { id } });
+  return result;
+}
+
+export async function findTeacherDisciplineById(id: number) {
+  const result = await prisma.teacherDisciplines.findUnique({ where: { id } });
+  return result;
+}
+
+export async function findDisciplineById(idDiscipline: number) {
+  const result = await prisma.disciplines.findUnique({
+    where: {
+      id: idDiscipline,
+    }
+  });
+
+  return result;
+}
+
+export async function findTermById(idTerm: number) {
+  const result = await prisma.terms.findUnique({
+    where: {
+      id: idTerm,
+    }
+  });
+
+  return result;
+}
+
+export async function findTeacherById(idTeacher: number) {
+  const result = await prisma.teachers.findUnique({
+    where: {
+      id: idTeacher,
+    }
+  });
+
+  return result;
+}
+
 export async function findDisciplinesByTermId(termId: number) {
   const result = await prisma.disciplines.findMany({
     where: { termId: termId },
@@ -69,12 +109,4 @@ export async function findTestsByTeacherId(idTeacher: number) {
   return result;
 }
 
-export async function findByIdCategory(id: number) {
-  const result = await prisma.categories.findUnique({ where: { id } });
-  return result;
-}
 
-export async function findByIdTeacherDiscipline(id: number) {
-  const result = await prisma.teacherDisciplines.findUnique({ where: { id } });
-  return result;
-}

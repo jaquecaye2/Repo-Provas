@@ -1,6 +1,6 @@
 import { Router } from "express";
 
-import { createTest, showTerms, showDisciplines, showTests, showTeachers, showTestsByTeacher } from "../controllers/testsController";
+import { createTest, showTerms, showDisciplines, showTeachers, showTestsByTeacher, showTestsByDiscipline } from "../controllers/testsController";
 import { validateSchema } from "../middlewares/validateSchema";
 import validateUser from "../middlewares/validateUser";
 import testSchema from "../schemas/testSchema";
@@ -13,7 +13,7 @@ router.get("/tests/term", validateUser, showTerms)
 
 router.get("/tests/term/:idTerm", validateUser, showDisciplines)
 
-router.get("/tests/discipline/:idDiscipline", validateUser, showTests)
+router.get("/tests/discipline/:idDiscipline", validateUser, showTestsByDiscipline)
 
 router.get("/tests/teacher", validateUser, showTeachers)
 

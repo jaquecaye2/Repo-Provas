@@ -6,8 +6,8 @@ import {
   showAllTeachers,
   showDisciplinesService,
   showTermsService,
-  showTestsService,
-  showTestsByTeacherService
+  showTestsByTeacherService,
+  showTestsByDisciplineService
 } from "../services/testsService";
 
 export async function createTest(request: Request, response: Response) {
@@ -44,10 +44,10 @@ export async function showDisciplines(request: Request, response: Response) {
   response.status(500).send();
 }
 
-export async function showTests(request: Request, response: Response) {
+export async function showTestsByDiscipline(request: Request, response: Response) {
   const idDiscipline = Number(request.params.idDiscipline)
 
-  const result = await showTestsService(idDiscipline);
+  const result = await showTestsByDisciplineService(idDiscipline);
 
   if (result) {
     return response.status(200).send(result);
