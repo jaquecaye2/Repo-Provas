@@ -16,7 +16,7 @@ function signup(request, response) {
         const user = request.body;
         const success = yield (0, usersService_1.createUser)(user);
         if (success === "success") {
-            return response.status(200).send("Usuário criado com sucesso");
+            return response.status(201).send("Usuário criado com sucesso");
         }
         response.status(500).send();
     });
