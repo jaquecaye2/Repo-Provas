@@ -11,6 +11,7 @@ import {
 
 beforeEach(async () => {
   await prisma.$executeRaw`TRUNCATE TABLE "tests"`;
+  await prisma.$executeRaw`TRUNCATE TABLE "users"`;
 });
 
 async function createAndLoginUser(){
